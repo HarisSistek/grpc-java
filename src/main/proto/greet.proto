@@ -21,4 +21,7 @@ message GreetingResponse {
 service GreetingService {
     // unary
     rpc Greet(GreetingRequest) returns (GreetingResponse) {};
+
+    // server side streaming
+    rpc GreetManyTimes(GreetingRequest) returns (stream GreetingResponse) {};
 }
