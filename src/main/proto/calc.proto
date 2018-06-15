@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package calc;
+
+option java_package = "com.proto.calc";
+option java_multiple_files = true;
+
+service CalcService {
+
+    /*
+    * Takes a request with two integers and returns the sum
+    */
+    rpc Sum(SumRequest) returns (SumResponse) {};
+
+    /*
+    * Takes a number and streams the prime number decomposition
+    * 120 = 2*2*2*3*5
+    */
+    rpc Prime(PrimeRequest) returns (stream PrimeResponse) {};
+}
+
+message SumRequest {
+    int32 value1 = 1;
+    int32 value2 = 2;
+}
+
+message SumResponse {
+    int32 result = 1;
+}
+
+message PrimeRequest {
+    int32 prime = 1;
+}
+
+message PrimeResponse {
+    int32 result = 1;
+}
